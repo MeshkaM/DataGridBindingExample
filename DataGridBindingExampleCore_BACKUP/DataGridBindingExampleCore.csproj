@@ -1,0 +1,51 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <OutputType>WinExe</OutputType>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <UseWPF>true</UseWPF>
+    <ImportWindowsDesktopTargets>true</ImportWindowsDesktopTargets>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Remove="ALL.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="AutomationUtils" Version="1.1.93.1" />
+    <PackageReference Include="DevExpress.Data" Version="23.2.4-pre-24010" />
+    <PackageReference Include="DevExpress.Data.de" Version="23.2.4-pre-24010" />
+    <PackageReference Include="DevExpress.Wpf.Grid" Version="23.2.3" />
+    <PackageReference Include="DevExpress.Wpf.Grid.Core" Version="23.2.3" />
+    <PackageReference Include="DevExpressMvvm" Version="22.1.3" />
+    <PackageReference Include="FontAwesome" Version="4.7.0" />
+    <PackageReference Include="FontAwesome.Sharp" Version="6.3.0" />
+    <PackageReference Include="FontAwesome.Sharp.Pro" Version="6.3.0" />
+    <PackageReference Include="FontAwesome.WPF" Version="4.7.0.9" />
+    <PackageReference Include="FontAwesome5" Version="2.1.11" />
+    <PackageReference Include="Gu.Wpf.UiAutomation" Version="0.4.1" />
+    <PackageReference Include="Interop.UIAutomationClient" Version="10.19041.0" />
+    <PackageReference Include="Interop.UIAutomationClient.Signed" Version="10.19041.0" />
+    <PackageReference Include="Interop.UIAutomationCore" Version="10.19041.0" />
+    <PackageReference Include="MahApps.Metro" Version="3.0.0-alpha0476" />
+    <PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="8.0.1" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.UserSecrets" Version="8.0.0" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="8.0.0" />
+    <PackageReference Include="PresentationFramework.Aero2" Version="1.0.1" />
+    <PackageReference Include="System.ComponentModel.Annotations" Version="5.0.0" />
+    <PackageReference Include="System.Data.DataSetExtensions" Version="4.5.0" />
+    <PackageReference Include="Microsoft.Bcl.AsyncInterfaces" Version="8.0.0" />
+    <PackageReference Include="System.Data.SqlClient" Version="4.8.6" />
+    <PackageReference Include="System.Runtime.CompilerServices.Unsafe" Version="6.0.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.2" />
+    <PackageReference Include="Dapper" Version="2.1.28" />
+    <PackageReference Include="MaterialDesignColors" Version="3.0.0-ci508" />
+    <PackageReference Include="MaterialDesignThemes" Version="5.0.0-ci508" />
+    <PackageReference Include="Microsoft.Xaml.Behaviors.Wpf" Version="1.1.77" />
+    <PackageReference Include="System.Windows.Extensions" Version="8.0.0" />
+    <PackageReference Include="UIA.Extensions" Version="1.0.66" />
+    <PackageReference Include="WpfAnimatedGif" Version="2.0.2" />
+  </ItemGroup>
+</Project>
