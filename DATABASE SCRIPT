@@ -254,3 +254,57 @@ ON DELETE CASCADE
 GO
 ALTER TABLE [dbo].[Provinces] CHECK CONSTRAINT [FK_Provinces_Countries]
 GO
+
+USE [CollegeDB]
+GO
+/****** Object:  Table [dbo].[PlacesOfLiving]    Script Date: 1/30/2024 6:20:12 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[PlacesOfLiving](
+	[ID] [int] IDENTITY(1,1) NOT NULL,
+	[StudentID] [int] NULL,
+	[CountryName] [nvarchar](50) NULL,
+	[ProvinceID] [int] NULL,
+	[DistrictID] [int] NULL,
+ CONSTRAINT [PK_PlacesOfLiving] PRIMARY KEY CLUSTERED 
+(
+	[ID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+SET IDENTITY_INSERT [dbo].[PlacesOfLiving] ON 
+GO
+INSERT [dbo].[PlacesOfLiving] ([ID], [StudentID], [CountryName], [ProvinceID], [DistrictID]) VALUES (1, 1, N'Country4', 3, 2)
+GO
+INSERT [dbo].[PlacesOfLiving] ([ID], [StudentID], [CountryName], [ProvinceID], [DistrictID]) VALUES (2, 2, N'Country3', 2, 1)
+GO
+INSERT [dbo].[PlacesOfLiving] ([ID], [StudentID], [CountryName], [ProvinceID], [DistrictID]) VALUES (3, 3, N'Country2', 1, 2)
+GO
+INSERT [dbo].[PlacesOfLiving] ([ID], [StudentID], [CountryName], [ProvinceID], [DistrictID]) VALUES (4, 4, N'Country1', 3, 1)
+GO
+SET IDENTITY_INSERT [dbo].[PlacesOfLiving] OFF
+GO
+ALTER TABLE [dbo].[PlacesOfLiving]  WITH CHECK ADD  CONSTRAINT [FK_PlacesOfLiving_Countries] FOREIGN KEY([CountryName])
+REFERENCES [dbo].[Countries] ([CountryName])
+GO
+ALTER TABLE [dbo].[PlacesOfLiving] CHECK CONSTRAINT [FK_PlacesOfLiving_Countries]
+GO
+ALTER TABLE [dbo].[PlacesOfLiving]  WITH CHECK ADD  CONSTRAINT [FK_PlacesOfLiving_Districts] FOREIGN KEY([DistrictID])
+REFERENCES [dbo].[Districts] ([DistrictID])
+GO
+ALTER TABLE [dbo].[PlacesOfLiving] CHECK CONSTRAINT [FK_PlacesOfLiving_Districts]
+GO
+ALTER TABLE [dbo].[PlacesOfLiving]  WITH CHECK ADD  CONSTRAINT [FK_PlacesOfLiving_Provinces] FOREIGN KEY([ProvinceID])
+REFERENCES [dbo].[Provinces] ([ProvinceID])
+GO
+ALTER TABLE [dbo].[PlacesOfLiving] CHECK CONSTRAINT [FK_PlacesOfLiving_Provinces]
+GO
+ALTER TABLE [dbo].[PlacesOfLiving]  WITH CHECK ADD  CONSTRAINT [FK_PlacesOfLiving_Students] FOREIGN KEY([StudentID])
+REFERENCES [dbo].[Students] ([StudentID])
+ON UPDATE CASCADE
+ON DELETE CASCADE
+GO
+ALTER TABLE [dbo].[PlacesOfLiving] CHECK CONSTRAINT [FK_PlacesOfLiving_Students]
+GO
