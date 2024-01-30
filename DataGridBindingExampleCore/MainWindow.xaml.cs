@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using DataGridBindingExampleCore.Models;
+using System.Windows;
 
 namespace DataGridBindingExampleCore
 {
@@ -8,6 +9,7 @@ namespace DataGridBindingExampleCore
         {
             InitializeComponent();
             this.DataContext = new MainWindowViewModel();
+            
         }
     }
 }

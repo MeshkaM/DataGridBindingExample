@@ -18,11 +18,15 @@ namespace DataGridBindingExampleCore2
             {
                 var students = (await conn.QueryAsync<StudentsModel>("SELECT * FROM Students")).ToList();
                 var allPlacesOfInterest = (await conn.QueryAsync<PlacesOfInterest>("SELECT * FROM PlacesOfInterest")).ToList();
+                var allPlacesOfLiving = (await conn.QueryAsync<PlacesOfLiving>("SELECT * FROM PlacesOfLiving")).ToList();
 
                 foreach (var student in students)
                 {
                     var placesOfInterest = allPlacesOfInterest.Where(p => p.StudentID == student.StudentID).ToList();
                     student.PlacesOfInterest = new ObservableCollection<PlacesOfInterest>(placesOfInterest);
+
+                    var placesOfLiving = allPlacesOfLiving.Where(p => p.StudentID == student.StudentID).ToList();
+                    student.PlacesOfLiving = new ObservableCollection<PlacesOfLiving>(placesOfLiving);
                 }
 
                 return students;
@@ -53,20 +57,5 @@ namespace DataGridBindingExampleCore2
             }
         }
 
-
-
-
-
-
-
-        public static string GetProvinceNameById(int provinceId)
-        {
-            // Query the database to get the province name by its ID
-            using (IDbConnection conn = new SqlConnection(ConnString))
-            {
-                var result = conn.QueryFirstOrDefault<ProvincesModel>("SELECT * FROM Provinces WHERE ProvinceID = @ProvinceID", new { ProvinceID = provinceId });
-                return result?.ProvinceName;
-            }
-        }
     }
 }

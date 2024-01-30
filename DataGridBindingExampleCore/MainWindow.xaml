@@ -8,6 +8,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid"
     Title="MainWindow"
     Width="800"
     Height="450"
@@ -26,6 +27,7 @@
                 <GradientStop Color="#FF040F2E" />
             </LinearGradientBrush>
         </Grid.Background>
+        
         <mah:ProgressRing IsActive="{Binding IsLoading}" 
                       HorizontalAlignment="Center" 
                       VerticalAlignment="Center" 
@@ -71,11 +73,12 @@
                             <DataGridTemplateColumn.CellEditingTemplate>
                                 <DataTemplate DataType="ComboBox">
                                     <ComboBox
-                                    Width="120"
-                                    DisplayMemberPath="ProvinceName"
-                                    ItemsSource="{Binding CurrentProvinces, Source={StaticResource vm}}"
-                                    SelectedValue="{Binding ProvinceID, UpdateSourceTrigger=PropertyChanged}"
-                                    SelectedValuePath="ProvinceID" />
+                                        Width="120"
+                                        DisplayMemberPath="ProvinceName"
+                                        ItemsSource="{Binding CurrentProvinces, Source={StaticResource vm}}"
+                                        SelectedValue="{Binding ProvinceID, UpdateSourceTrigger=PropertyChanged}"
+                                        SelectedValuePath="ProvinceID">
+                                    </ComboBox>
                                 </DataTemplate>
                             </DataGridTemplateColumn.CellEditingTemplate>
                         </DataGridTemplateColumn>

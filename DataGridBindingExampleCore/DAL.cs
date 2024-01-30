@@ -52,21 +52,5 @@ namespace DataGridBindingExampleCore
                 return result.ToList();
             }
         }
-
-
-
-
-
-
-
-        public static string GetProvinceNameById(int provinceId)
-        {
-            // Query the database to get the province name by its ID
-            using (IDbConnection conn = new SqlConnection(ConnString))
-            {
-                var result = conn.QueryFirstOrDefault<ProvincesModel>("SELECT * FROM Provinces WHERE ProvinceID = @ProvinceID", new { ProvinceID = provinceId });
-                return result?.ProvinceName;
-            }
-        }
     }
 }

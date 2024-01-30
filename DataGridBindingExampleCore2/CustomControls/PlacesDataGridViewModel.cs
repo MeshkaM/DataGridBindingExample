@@ -27,11 +27,25 @@ namespace DataGridBindingExampleCore2.CustomControls
         ObservableCollection<DistrictsModel> districts;
 
         public object CurrentProvinces
-        { get => new ObservableCollection<ProvincesModel>(Provinces.Where((p) => p.CountryName == SelectedPlace.CountryName)); }
+        {
+            get
+            {
+                var countryName = SelectedPlace?.GetType().GetProperty("CountryName")?.GetValue(SelectedPlace, null);
+                if (countryName == null) return null;
+                return new ObservableCollection<ProvincesModel>(Provinces.Where((p) => p.CountryName == countryName.ToString()));
+            }
+        }
         public object CurrentDistricts
-        { get => new ObservableCollection<DistrictsModel>(Districts.Where((p) => p.ProvinceID == SelectedPlace.ProvinceID)); }
+        {
+            get
+            {
+                var provinceID = SelectedPlace?.GetType().GetProperty("ProvinceID")?.GetValue(SelectedPlace, null);
+                if (provinceID == null) return null;
+                return new ObservableCollection<DistrictsModel>(Districts.Where((p) => p.ProvinceID == (int)provinceID));
+            }
+        }
 
         [ObservableProperty]
-        PlacesOfInterest selectedPlace;
+        object selectedPlace;
     }
 }

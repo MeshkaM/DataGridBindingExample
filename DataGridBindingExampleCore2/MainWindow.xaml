@@ -10,7 +10,7 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Window.Resources>
-        <vm:MainWindowViewModel x:Key="vm" />
+        <vm:MainWindowViewModel x:Key="vm"/>
     </Window.Resources>
 
     <Grid DataContext="{StaticResource vm}">
@@ -30,20 +30,30 @@
                     <Label Content="StudentsName :" Foreground="BlueViolet"/>
                     <TextBox Text="{Binding SelectedStudent.StudentName}" Foreground="AliceBlue"/>
                 </StackPanel>
-                <Label Content="Students Places Of Interest :" Foreground="BlueViolet"/>
+                <Label Content="Places Of Interest :" Foreground="BlueViolet"/>
+
                 <customControl:PlacesDataGrid 
                     DataGridItemsSource="{Binding SelectedStudent.PlacesOfInterest}"
-                    CountryPathvalue="CountryName"
-                    CountrySelectedValue="{Binding SelectedItem.CountryName, ElementName=ddd, UpdateSourceTrigger=PropertyChanged}"                  
+                    CountryPathValue="CountryName"
+                    CountrySelectedValue="CountryName"                  
                     ProvincePathValue="ProvinceName"
-                    ProvinceSelectedValue="{Binding SelectedItem.ProvinceID, ElementName=ddd, UpdateSourceTrigger=PropertyChanged}"
-                    ProvinceIDvalue="ProvinceID"
+                    ProvinceSelectedValue="ProvinceID"
+                    ProvinceIDValue="ProvinceID"
                     DistrictPathValue="DistrictName"
-                    DistrictSelectedValue="{Binding SelectedItem.DistrictID, ElementName=ddd, UpdateSourceTrigger=PropertyChanged}"
-                    DistrictIDvalue="DistrictID"
-                />
+                    DistrictSelectedValue="DistrictID"
+                    DistrictIDValue="DistrictID"/>
 
-
+                <Label Content="Places Of Living :" Foreground="BlueViolet" Margin="0 30 0 0"/>
+                <customControl:PlacesDataGrid 
+                    DataGridItemsSource="{Binding SelectedStudent.PlacesOfLiving}"
+                    CountryPathValue="CountryName"
+                    CountrySelectedValue="CountryName"                  
+                    ProvincePathValue="ProvinceName"
+                    ProvinceSelectedValue="ProvinceID"
+                    ProvinceIDValue="ProvinceID"
+                    DistrictPathValue="DistrictName"
+                    DistrictSelectedValue="DistrictID"
+                    DistrictIDValue="DistrictID"/>
 
             </StackPanel>
             <StackPanel Orientation="Horizontal">

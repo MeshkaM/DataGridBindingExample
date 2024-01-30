@@ -32,7 +32,6 @@ namespace DataGridBindingExampleCore
         [ObservableProperty]
         PlacesOfInterest selectedPlace;
 
-
         int currentIndex = 0;
 
         [RelayCommand]

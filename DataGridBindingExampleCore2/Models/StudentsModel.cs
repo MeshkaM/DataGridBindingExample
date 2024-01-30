@@ -11,5 +11,7 @@ namespace DataGridBindingExampleCore2.Models
         string studentName;
         [ObservableProperty]
         ObservableCollection<PlacesOfInterest> placesOfInterest;
+        [ObservableProperty]
+        ObservableCollection<PlacesOfLiving> placesOfLiving;
     }
 }

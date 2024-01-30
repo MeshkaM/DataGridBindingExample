@@ -48,9 +48,6 @@ namespace DataGridBindingExampleCore2
             IsLoading = true;
 
             this.Students = new ObservableCollection<StudentsModel>(await DAL.LoadStudentsAsync());
-            //this.Countries = new ObservableCollection<CountriesModel>(await DAL.LoadCountriesAsync());
-            //this.Provinces = new ObservableCollection<ProvincesModel>(await DAL.LoadProvincesAsync());
-            //this.Districts = new ObservableCollection<DistrictsModel>(await DAL.LoadDistrictsAsync());
 
             this.SelectedStudent = Students.FirstOrDefault();
             OnPropertyChanged(nameof(SelectedStudent));  // Notify the UI that SelectedStudent has changed
